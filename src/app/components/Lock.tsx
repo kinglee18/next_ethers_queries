@@ -68,6 +68,11 @@ const LockComponent: React.FC = () => {
   return (
     <div className="p-4 border-blue-500 border border-solid rounded-lg">
       <h2 className="text-xl font-semibold mb-4 text-center">Lock Contract</h2>
+      {unlockTime !== null && (
+        <p>Unlock time: {new Date(Number(unlockTime) * 1000).toString()}
+          <CountdownTimer targetDate={new Date(Number(unlockTime) * 1000)} />
+        </p>
+      )}
       {balance !== null && (
         <p>Contract balance: {ethers.formatEther(balance)} ETH</p>
       )}
